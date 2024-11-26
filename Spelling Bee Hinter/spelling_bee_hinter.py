@@ -50,12 +50,18 @@ def main():
     # Build the ChatGPT prompt
     chatgpt_client = OpenAI(api_key=OPENAI_API_KEY)
 
-    chat_gpt_prompt = """For each of the following answer words provide a list of hints for a Spelling Bee word game. Hints should be no more than one line of text long. Provide only the hints in raw JSON format as follows: 
+    chat_gpt_prompt = """For each of the following answer words provide a list of
+    hints for a Spelling Bee word game. Hints should be no more than one line 
+    of text long. Provide only the hints in raw JSON format as follows: 
     {
     "spelling_bee_hints": {
     "word": "hint",
     }
-    } with the dictionary being called spelling_bee_hints and each answer as a key. The output should take the format of a valid JSON object - Keys must be double-quoted strings and should always be followed by a colon and value. Values can be any valid data type such as strings, numbers, objects, arrays etc. Strings must also be double-quoted. Answers: \n"""
+    } with the dictionary being called spelling_bee_hints and each answer as a
+    key. The output should take the format of a valid JSON object - Keys must
+    be double-quoted strings and should always be followed by a colon and 
+    value. Values can be any valid data type such as strings, numbers, 
+    objects, arrays etc. Strings must also be double-quoted. Answers: \n"""
     answer_text = " ".join(todays_answers)
     chat_gpt_prompt = chat_gpt_prompt + answer_text
 
